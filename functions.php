@@ -35,7 +35,7 @@ function login($gbd,$username, $password, $remember){
         if($remember == true){
             setcookie('id',$usuario['id'],time()+3600);
         }
-        header('Location:newPost.html');      
+        header('Location:newPost.php');      
     }
     
     return "Usuario o contraseña incorrectos";
