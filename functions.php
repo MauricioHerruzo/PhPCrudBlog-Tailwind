@@ -1,6 +1,6 @@
 <?php 
 
-require_once('./conexion.php');
+require_once('conexion.php');
 
 //FUNC REGISTRAR
 function registrar($gbd,$username, $password, $email){
@@ -24,17 +24,35 @@ function registrar($gbd,$username, $password, $email){
 }
 
 //FUNC LOGIN
-function login($gbd,$username, $password){
+function login($gbd,$username, $password, $remember){
     $smt = $gbd->prepare("SELECT * from usuarios where username = ?");
     $smt->execute([$username]);
-    
     $data = $smt->fetch(PDO::FETCH_OBJ);
 
     if($data && password_verify($password,$data->password)){
-        return "Estás logeado";
+        session_start();
+        $_SESSION['id'] = $usuario['id'];
+        if($remember == true){
+            setcookie('id',$usuario['id'],time()+3600);
+        }
+        header('Location:newPost.html');      
     }
- 
+    
     return "Usuario o contraseña incorrectos";
+}
+
+// FUNC POST 
+function post($gbd,$title,$text,$img){
+    $smt = $gbd->prepare("INSERT into posts (title,postbody,img) VALUES (?,?,?)");
+    $resultado = $smt->execute([$title,$text,$img]);
+
+    if($resultado){
+        // header('Location:admin.php');
+        return "Has posteado yipi";
+
+    }
+    return "No has posteado";
+
 }
 
 ?>

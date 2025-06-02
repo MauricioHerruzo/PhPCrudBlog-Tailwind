@@ -5,7 +5,7 @@ if(isset($_POST['registrar'])){
 }
 
 if(isset($_POST['login'])){
-    $mensaje = login($gbd,$_POST['username'], $_POST['password']);
+    $mensaje = login($gbd,$_POST['username'], $_POST['password'], $_POST['remember']);
 }
 ?>
 <!DOCTYPE html>
@@ -23,8 +23,8 @@ if(isset($_POST['login'])){
     <h2>Registro</h2>
     <form method="post">
         <input type="text" name="username" placeholder="Usuario" required>
+        <input type="email" name="email" placeholder="Email" required>
         <input type="password" name="password" placeholder="Contraseña" required>
-        <input type="email" name="email" placeholder="Correo (opcional)">
         <button type="submit" name="registrar">Registrarse</button>
     </form>
 
@@ -34,6 +34,7 @@ if(isset($_POST['login'])){
     <form method="post">
         <input type="text" name="username" placeholder="Usuario" required>
         <input type="password" name="password" placeholder="Contraseña" required>
+        <input type="checkbox" name="remember" id=""><label for="recordar">Recuerdame</label>
         <button type="submit" name="login">Entrar</button>
     </form>
     <?php } ?>
