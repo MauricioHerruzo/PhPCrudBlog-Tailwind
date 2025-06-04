@@ -31,11 +31,11 @@ function login($gbd,$username, $password, $remember){
 
     if($data && password_verify($password,$data->password)){
         session_start();
-        $_SESSION['id'] = $usuario['id'];
+        $_SESSION['id'] = $data->id;
         if($remember == true){
-            setcookie('id',$usuario['id'],time()+3600);
+            setcookie('id',$data->id,time()+3600);
         }
-        header('Location:newPost.php');      
+        header('Location:admin.php');      
     }
     
     return "Usuario o contraseña incorrectos";
@@ -47,9 +47,7 @@ function post($gbd,$title,$text,$img){
     $resultado = $smt->execute([$title,$text,$img]);
 
     if($resultado){
-        // header('Location:admin.php');
-        return "Has posteado yipi";
-
+        header('Location:admin.php');
     }
     return "No has posteado";
 
