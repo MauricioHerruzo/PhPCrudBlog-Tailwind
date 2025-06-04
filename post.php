@@ -11,7 +11,7 @@ if(isset( $_GET['id'])){
     $resultado = $stm->fetch(PDO::FETCH_OBJ);
 
 }else{
-    header("Location:index.php");
+    header("Location:blog.php");
 }
 ?>
 <?php include_once("header.php"); ?>

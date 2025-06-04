@@ -1,6 +1,12 @@
 <?php 
 require_once('functions.php');
-
+ session_start();
+ if(isset($_COOKIE['id'])){
+     $_SESSION['id'] = $_COOKIE['id'];
+ }
+ if(!isset($_SESSION['id'])){
+     header('location:loginRegister.php');
+ }
 
 if(isset($_POST['submit']) && !empty($_POST['title']) && !empty($_POST['text']) && !empty($_FILES['img'])){
     $title = $_POST['title'];

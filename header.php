@@ -4,10 +4,11 @@ require_once("conexion.php");
 //CAMBIAR EL FONDO DEL BODY SEGUN EL PAGE
 $backgroundImages = [
     'index' => './img/bgHome.jpg',
-    'blog' => './img/fondoBlog-min.jpg',
+    'blog' => './img/totkheader.jpg',
     'loginRegister' => './img/linkFondoPost.jpg',
     'post' => './img/linkFondoPost.jpg',
     'newPost' => './img/linkFondoPost.jpg',
+    'admin' => './img/adminheader.jpg',
 ];
 
 $currentPage = pathinfo($_SERVER['PHP_SELF'], PATHINFO_FILENAME);

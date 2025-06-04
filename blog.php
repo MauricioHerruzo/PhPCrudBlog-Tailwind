@@ -23,5 +23,5 @@ $resultados = $stm->fetchAll(PDO::FETCH_OBJ);
     
 </body>
 </html>
-<a href="./hero.php?id=<?php echo $hero['hero_id'] ?>">Ver Más</a>
+
 
