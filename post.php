@@ -22,7 +22,7 @@ if(isset( $_GET['id'])){
                 <h1 class="w-full text-amber-50 text-xl self-center text-center sm:text-4xl lg:text-4xl bg-[#2e211f] rounded-2xl p-4 shadow-xl"><?= $resultado->title ?></h1>
                 <div class="w-full h-[200px] md:h-[400px] lg:h-[600px] bg-[url(./img/posts/<?= $resultado->img ?>)] bg-cover bg-center rounded-xl mt-5 shadow-xl" >
                 </div>
-                <p class="text-amber-50 mt-5 sm:text-2xl"><?= $resultado->postbody ?></p>
+                <p class="text-amber-50 mt-5 sm:text-2xl"><?= nl2br(htmlspecialchars($resultado->postbody)) ?></p>
             </div>
         </div>
     </main>

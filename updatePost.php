@@ -25,7 +25,7 @@ if(isset($_GET['id'])){
 // permitir updatear
 if(isset($_POST['submit']) && !empty($_POST['title']) && !empty($_POST['text'])){
     $title = $_POST['title'];
-    $text = nl2br(htmlspecialchars($_POST['text'])); 
+    $text =$_POST['text']; 
 
     // tratamiento de la imagen
     $img = $_FILES['img'];
